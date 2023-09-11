@@ -43,36 +43,86 @@ console.groupEnd();
 
 // Understanding 'this' in Context
 
-const person = {
-    firstName: 'Bob',
-    lastName: 'Smith',
-    age: 42,
-    printPerson: function() {
-        console.log(`${this.firstName} ${this.lastName} is ${this.age} years old.`);
-    },
-}
+console.groupCollapsed('2: "this" in context');
 
-person.printPerson();  // Bob Smith is 42 years old.
-                       // 'this' refers to the 'person' object
-
-const person2 = {
-    firstName: 'Janet',
-    lastName: 'Smith',
-    age: 40,
-    printPerson: function() {
-        
-        const arrowFunction = () => {
+    const person = {
+        firstName: 'Bob',
+        lastName: 'Smith',
+        age: 42,
+        printPerson: function() {
             console.log(`${this.firstName} ${this.lastName} is ${this.age} years old.`);
-        }
+        },
+    }
 
-        arrowFunction();
-    },
+    person.printPerson();  // Bob Smith is 42 years old.
+                        // 'this' refers to the 'person' object
+
+    const person2 = {
+        firstName: 'Janet',
+        lastName: 'Smith',
+        age: 40,
+        printPerson: function() {
+            
+            const arrowFunction = () => {
+                console.log(`${this.firstName} ${this.lastName} is ${this.age} years old.`);
+            }
+
+            arrowFunction();
+        },
+    }
+
+    person2.printPerson();  // Jane Smith is 40 years old.
+                            // Arrow functions refer to the nearest function's 'this' scope
+                            // If the arrow function above were not in 'printPerson: function()',
+                            // we would get undefined because 'this' would refer to Window instead of 'person2'
+
+console.groupEnd();
+
+// Challenges: Embracing OOP Techniques
+
+class Playlist {
+
+    constructor() {
+        this.videos = [];
+    }
+
+    addVideo(title, duration) {
+        this.videos.push({ title, duration });
+    }
+
+    totalDuration() {
+        let total = 0;
+        for (const video of this.videos) {
+            total += video.duration;
+        }
+        return total;
+    }
+
+    averageDuration() {
+        const total = this.totalDuration();
+        return total / this.videos.length;
+    }
 }
 
-person2.printPerson();  // Jane Smith is 40 years old.
-                        // Arrow functions refer to the nearest function's 'this' scope
-                        // If the arrow function above were not in 'printPerson: function()',
-                        // we would get undefined because 'this' would refer to Window instead of 'person2'
+const myPlayList = new Playlist();
+
+myPlayList.addVideo('The Titanic', 194);
+myPlayList.addVideo('The Barbie Movie', 114);
+
+console.groupCollapsed('3: OOP Techniques');
+
+    console.log(myPlayList);  /* 
+                              Playlist {
+                                videos: [
+                                    { title: 'The Titanic', duration: 194 },
+                                    { title: 'The Barbie Movie', duration: 114 }
+                                ]
+                              } 
+                              */                            
+
+    console.log('Total Duration:', myPlayList.totalDuration());  // Total Duration: 308
+    console.log('Average Duration', myPlayList.averageDuration());  // Average Duration: 154
+
+console.groupEnd();
 
 
-                        
