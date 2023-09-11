@@ -23,17 +23,22 @@ const IndianaJonesClothing = {
     hat: 'fedora',
     shoes: 'boots',
     accessory: 'whip',
-    outfit: () => {
-        console.log(
-            `hat: ${this.hat}` +
-            `\nshoes: ${this.shoes}` +
-            `\naccessory: ${this.accessory}`
-        );
+    outfit: function () {
+        
+        const arrowFunction = () => {
+            console.log(
+                `hat: ${this.hat}` +
+                `\nshoes: ${this.shoes}` +
+                `\naccessory: ${this.accessory}`
+            );
+        }
+
+        arrowFunction();
     }
 }
 
 IndianaJonesClothing.outfit();  /*
-                        hat: undefined
-                        shoes: undefined
-                        accessory: undefined
+                        hat: fedora
+                        shoes: boots
+                        accessory: whip
                     */
