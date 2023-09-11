@@ -25,9 +25,27 @@ myOtherObject.printThis();  // undefined: [object Object]
 
 // Exercise 2
 
+class Person {
 
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        console.log(`Howdy, ${this.name}!`);
+    }
+}
+
+const bud = new Person('Bud', 42);
+const chelsea = new Person('Chelsea', 13);
+
+bud.greet();  // Howdy, Bud!
+chelsea.greet();  // Howdy, Chelsea!
 
 // Exercise 3
+
+
 
 // Exercise 4
 
