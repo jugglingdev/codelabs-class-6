@@ -125,4 +125,31 @@ console.groupCollapsed('3: OOP Techniques');
 
 console.groupEnd();
 
+// Context Binding
 
+console.groupCollapsed(`4: Context Binding`);
+
+    function contextDemonstrator(method, context) {
+        // Using .bind()
+        const bindMethod = method.bind(context);
+
+        // Using an arrow function
+        const arrowMethod = () => {
+            return method.call(context);
+        };
+
+        console.log(`Using .bind():`, bindMethod());  // Using .bind(): Hello, Henry!
+        console.log(`Using arrow function:`, arrowMethod());  // Using arrow function: Hello, Henry!
+    }
+
+    const user = {
+        name: 'Henry',
+    };
+
+    function greet() {
+        return `Hello, ${this.name}!`;
+    }
+
+    contextDemonstrator(greet, user);
+
+console.groupEnd();
