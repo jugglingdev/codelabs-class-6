@@ -10,13 +10,14 @@ const clothing = {
             `\naccessory: ${this.accessory}`
         );
     }
-}
+};
 
 clothing.outfit();  /*
                         hat: beanie
                         shoes: sneakers
                         accessory: scarf
                     */
+
 
 const IndianaJonesClothing = {
 
@@ -35,10 +36,32 @@ const IndianaJonesClothing = {
 
         arrowFunction();
     }
-}
+};
 
 IndianaJonesClothing.outfit();  /*
                         hat: fedora
                         shoes: boots
                         accessory: whip
                     */
+
+                        
+const DevilWearsPradaClothing = {
+
+    hat: 'tweed cap',
+    shoes: 'heels',
+    accessory: 'Chanel necklace',
+    outfit: function() {
+        console.log(
+            `hat: ${this.hat}` +
+            `\nshoes: ${this.shoes}` +
+            `\naccessory: ${this.accessory}`
+        );
+    }
+};
+
+const boundOutfit = DevilWearsPradaClothing.outfit.bind(DevilWearsPradaClothing);
+
+boundOutfit();  /*
+                    hat: tweed cap
+                    shoes: heels                   accessory: Chanel necklace
+                */
