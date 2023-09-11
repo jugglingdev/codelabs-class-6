@@ -25,8 +25,9 @@ myCar.displayInfo();  /*
 
 class ElectricCar extends Car {
 
-    constructor(make, model, year, batteryLife) {
+    constructor(make, model, year, type, batteryLife) {
         super(make, model, year);
+        this.type = type;
         this.batteryLife = batteryLife;
     }
 
@@ -34,16 +35,19 @@ class ElectricCar extends Car {
         console.log(
             `Make: ${this.make}` + 
             `\nModel: ${this.model}` + 
-            `\nYear: ${this.year}` 
+            `\nYear: ${this.year}` +
+            `\nType: ${this.type}` +
+            `\nBattery Life: ${this.batteryLife}`
         );
     }
 }
 
-const prius = new ElectricCar('Toyota', 'Prius', 2020, '150,000 miles');
+const prius = new ElectricCar('Toyota', 'Prius', 2020, 'hybrid', '150,000 miles');
 
 prius.displayInfo();  /*
                         Make: Toyota
                         Model: Prius
                         Year: 2020
+                        Type: hybrid
+                        Battery Life: 150,000 miles
                       */
-
