@@ -123,5 +123,74 @@ console.groupEnd();
 
 // Exercise 6
 
-// See file class-6-private-fields-in-classes
+console.groupCollapsed('Exercise 6');
+    console.log('See file "class-6-private-fields-in-classes"');
+console.groupEnd();
 
+// Exercise 7
+
+class Library {
+
+    constructor() {
+        this.books = [];
+    }
+
+    addBook(book) {
+        this.books.push(book);
+    }
+
+    removeBook(ISBN) {
+        const index = this.books.findIndex((book) => book.getISBN() == ISBN)
+        if (index != -1) {  // findIndex() will return -1 if a book is not found
+            this.books.splice(index, 1);
+            console.log(`Book with ISBN ${ISBN} removed successfully.`);
+        } else {
+            console.log(`Book with ISBN ${ISBN} not found.`);
+        }
+    }
+
+    listAllBooks() {
+        console.log('Library Book List:');
+        this.books.forEach((book) => {
+            console.log(`Title: ${book.title}`);
+        });
+    }
+}
+
+class Book {
+    #ISBN;
+    title;
+    author;
+    yearPublished;
+
+    constructor(ISBN, title, author, yearPublished) {
+        this.#ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+        this.yearPublished = yearPublished;
+    }
+
+    getISBN() {
+        return this.#ISBN;
+    }
+}
+
+console.groupCollapsed('Exercise 7');
+
+    const myLibrary = new Library();
+
+    const book1 = new Book('123456789', 'A Fun Book', 'John Smith', 2020);
+    const book2 = new Book('987654321', 'A Funner Book', 'Jane Smith', 2021);
+
+    myLibrary.addBook(book1);
+    myLibrary.addBook(book2);
+
+    myLibrary.listAllBooks();
+
+    myLibrary.removeBook('123456789');
+
+    myLibrary.listAllBooks();
+
+console.groupEnd();
+
+// Exercise 8
