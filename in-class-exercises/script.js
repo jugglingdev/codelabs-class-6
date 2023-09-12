@@ -117,7 +117,11 @@ console.groupCollapsed('Exercise 5');
 
     const millie = new Person3('Millie', 32);
     millie.personAge = -23;
-    console.log(millie.personAge);
+    console.log(millie.personAge);  // Invalid age
 
 console.groupEnd();
+
+// Exercise 6
+
+// See file class-6-private-fields-in-classes
 
