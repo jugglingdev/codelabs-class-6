@@ -59,7 +59,7 @@ console.groupCollapsed('Exercise 2');
 
 console.groupEnd();
 
-// Exercise 3
+// Exercises 3 and 4
 
 class Person2 {
 
@@ -70,6 +70,10 @@ class Person2 {
 
     greet() {
         console.log(`Howdy, ${this.name}!`);
+    }
+
+    static info() {
+        return `This is a Person class`;
     }
 }
 
@@ -83,6 +87,12 @@ console.groupCollapsed('Exercise 3');
 
 console.groupEnd();
 
-// Exercise 4
+
+console.groupCollapsed('Exercise 4');
+
+    console.log(Person2.info());  // This is a Person class
+    // console.log(bud.info());  // bud.info is not a function
+
+console.groupEnd();
 
 // Exercise 5
