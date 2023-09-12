@@ -96,3 +96,28 @@ console.groupCollapsed('Exercise 4');
 console.groupEnd();
 
 // Exercise 5
+
+class Person3 {
+
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    get personAge() {
+        return this.age;
+    }
+
+    set personAge(age) {
+        this.age = (age > 0) ? age : 'Invalid age';
+    }
+}
+
+console.groupCollapsed('Exercise 5');
+
+    const millie = new Person3('Millie', 32);
+    millie.personAge = -23;
+    console.log(millie.personAge);
+
+console.groupEnd();
+
