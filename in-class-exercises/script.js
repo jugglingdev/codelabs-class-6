@@ -194,3 +194,39 @@ console.groupCollapsed('Exercise 7');
 console.groupEnd();
 
 // Exercise 8
+
+class Student {
+
+    constructor(name) {
+        this.name = name;
+        this.grades = [];
+    }
+
+    addGrade(grade) {
+        this.grades.push(grade);
+    }
+
+    computeAverage() {
+        if (this.grades.length == 0) {
+            return 'No grades available.';
+        }
+
+        const sum = this.grades.reduce((total, grade) => total + grade, 0);
+        const average = sum / this.grades.length;
+        return average;
+    }
+}
+
+console.groupCollapsed('Exercise 8');
+
+    const student1 = new Student('Alice');
+
+    student1.addGrade(90);
+    student1.addGrade(85);
+    student1.addGrade(95);
+
+    console.log(`Student: ${student1.name}`);
+    console.log(`Grades: ${student1.grades.join(', ')}`);
+    console.log(`Average: ${student1.computeAverage()}`);
+
+console.groupEnd();
